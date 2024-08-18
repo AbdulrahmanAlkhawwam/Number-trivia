@@ -1,6 +1,6 @@
-# tdd_cac1
+# Number Trivia
 
-Flutter TDD and Clean Architecture Course [1]
+Flutter TDD and Clean Architecture Course
 
 ## Getting Started
 
