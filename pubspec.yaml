@@ -18,13 +18,11 @@ dependencies:
   http: ^1.2.2
   dartz: ^0.10.1
   shared_preferences: ^2.3.2
-  flutter_connectivity: ^0.0.3
+  data_connection_checker_nulls: ^0.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^5.4.4
-
 
   flutter_lints: ^4.0.0
 
