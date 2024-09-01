@@ -1,6 +1,6 @@
-# Number Trivia
+# number_trivia
 
-Flutter TDD and Clean Architecture Course
+A new Flutter project.
 
 ## Getting Started
 

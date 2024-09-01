@@ -1,11 +1,11 @@
 {
-    "name": "tdd_cac1",
-    "short_name": "tdd_cac1",
+    "name": "number_trivia",
+    "short_name": "number_trivia",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Flutter TDD and Clean Architecture Course [1]",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

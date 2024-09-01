@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="tdd_cac1"
+        android:label="number_trivia"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:tdd_cac1/features/number_trivia/data/models/number_trivia_model.dart';
+import 'package:number_trivia/features/number_trivia/data/models/number_trivia_model.dart';
 import '../../../core/error/exceptions.dart';
 import '../../../core/error/failures.dart';
 import '../../../core/network/network_info.dart';
