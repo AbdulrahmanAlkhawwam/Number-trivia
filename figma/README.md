@@ -26,7 +26,7 @@ we use in this design [material design](https://m3.material.io/) which created b
 
 
 ## Design 
-![frames image]()
+![frames image](https://github.com/AbdulrahmanAlkhawwam/Number-trivia/blob/main/figma/Frame%201.svg)
 
 ## Contact us 
 
