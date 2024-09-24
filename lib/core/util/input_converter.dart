@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:number_trivia/features/core/error/failures.dart';
+
+import '../../core/error/failures.dart';
 
 class InputConverter {
   Either<Failure, int> stringToUnsignedInteger(String str) {

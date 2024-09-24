@@ -1,7 +1,8 @@
-import 'dart:convert';
-import 'package:number_trivia/features/core/error/exceptions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
+
 import '../models/number_trivia_model.dart';
+import '../../../../core/error/exceptions.dart';
 
 abstract class LocalDataSource {
   Future<NumberTriviaModel> getLastNumberTrivia();
