@@ -26,7 +26,7 @@ class NumberWidget extends StatelessWidget {
                 ),
                 Text(
                   textAlign: TextAlign.center,
-                  "There are some error \n reOpen the app !",
+                  state.message,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,

@@ -1,22 +1,19 @@
 import 'package:dartz/dartz.dart';
 
-import '../../core/error/failures.dart';
+import '../error/failures.dart';
 
 class InputConverter {
-  Either<Failure, int> stringToUnsignedInteger(String str) {
+  /// strToInt is function get [String] and take you a [Int] or throw [ParsingFailure]
+  Either<Failure, int> strToInt(String str) {
     try {
       final intNumber = int.parse(str);
       if (intNumber < 0) {
-        throw const FormatException();
+        throw const ParsingFailure("can't format this input");
       } else {
         return Right(intNumber);
       }
-    } on FormatException {
-      return const Left(InvalidInputFailure());
+    } catch (e) {
+      return Left(ParsingFailure(e.toString()));
     }
   }
-}
-
-class InvalidInputFailure extends Failure {
-  const InvalidInputFailure({super.properties});
 }

@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import '../../../number_trivia/data/models/number_trivia_model.dart';
+import '../../data/models/number_trivia_model.dart';
 import '../../../../core/error/exceptions.dart';
 
 abstract class RemoteDataSource {
@@ -24,10 +24,8 @@ class RemoteDataSourceImpl extends RemoteDataSource {
 
   Future<NumberTriviaModel> _getTriviaFromUrl(String url) async {
     final response = await http.get(Uri.parse(url));
-    if (response.statusCode == 200) {
-      return NumberTriviaModel.fromJson(json.decode(response.body));
-    } else {
-      throw ServerException();
-    }
+    return response.statusCode == 200
+        ? NumberTriviaModel.fromJson(json.decode(response.body))
+        : throw ServerException('you are not connected');
   }
 }

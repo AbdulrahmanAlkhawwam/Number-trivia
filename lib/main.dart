@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:number_trivia/features/number_trivia/presentation/screens/main_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'injection_container.dart' as di;
+
+import './features/number_trivia/presentation/screens/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.green.shade800,
         ),

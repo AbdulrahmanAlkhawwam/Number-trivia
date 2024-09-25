@@ -1,33 +1,21 @@
 part of 'number_trivia_bloc.dart';
 
-sealed class NumberTriviaState extends Equatable {
+abstract class NumberTriviaState {
   const NumberTriviaState();
 }
 
-class Empty extends NumberTriviaState {
-  @override
-  List<Object> get props => [];
-}
+class Empty extends NumberTriviaState {}
 
-class Loading extends NumberTriviaState {
-  @override
-  List<Object> get props => [];
-}
+class Loading extends NumberTriviaState {}
 
 class Loaded extends NumberTriviaState {
-  const Loaded({required this.trivia});
-
   final NumberTrivia trivia;
 
-  @override
-  List<Object> get props => [trivia];
+  const Loaded({required this.trivia});
 }
 
 class Error extends NumberTriviaState {
-  const Error({required this.message});
-
   final String message;
 
-  @override
-  List<Object> get props => [message];
+  const Error({required this.message});
 }

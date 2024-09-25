@@ -1,7 +1,8 @@
-import 'package:number_trivia/features/number_trivia/presentation/bloc/number_trivia_bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:number_trivia/features/number_trivia/presentation/widgets/number_widget.dart';
+import 'package:flutter/material.dart';
+
+import '../widgets/number_widget.dart';
+import '../bloc/number_trivia_bloc.dart';
 import '../../../../injection_container.dart';
 
 class MainScreen extends StatelessWidget {
@@ -10,7 +11,8 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final globalKey = GlobalKey<FormState>();
-    TextEditingController controller = TextEditingController();
+    final controller = TextEditingController();
+
     return BlocProvider<NumberTriviaBloc>(
       create: (_) => sl<NumberTriviaBloc>(),
       child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
@@ -79,7 +81,7 @@ class MainScreen extends StatelessWidget {
                               if (globalKey.currentState?.validate() ?? false) {
                                 globalKey.currentState?.save();
                                 BlocProvider.of<NumberTriviaBloc>(context).add(
-                                  GetTriviaForConcreteNumber(
+                                  ConcreteNumberEvent(
                                     controller.text,
                                   ),
                                 );
@@ -105,7 +107,7 @@ class MainScreen extends StatelessWidget {
                           child: FilledButton.tonal(
                             onPressed: () {
                               BlocProvider.of<NumberTriviaBloc>(context).add(
-                                GetTriviaForRandomNumber(),
+                                RandomNumberEvent(),
                               );
                             },
                             child: Text(
