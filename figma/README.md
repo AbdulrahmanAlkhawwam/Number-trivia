@@ -2,10 +2,10 @@
 
 Number Trivia Figma Design
 
-## tag : v0.1.0
+## tag : v0.1.1
 
 * this version features:-
-  <br><br>  1.reponsive desgin for mobile app
+  <br><br>  1.responsive design for mobile app
   <br>  2.handle error state
   <br>  3.User comfort
 
