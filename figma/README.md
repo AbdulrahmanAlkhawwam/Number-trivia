@@ -27,9 +27,11 @@ Number Trivia Figma Design
 * this design work for Ios and Android platform which developed
   by [flutter framework](https://flutter.dev/) which developed also by google company © ...
 
+* this design support loading state which use linear indicator loading widget
+
 ## Design
 
-![frames image](Number%20Trivia%20(v0.1.0).svg)
+![frames image](Number%20Trivia%20(v0.1.1).svg)
 
 ## Contact us
 
