@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/material.dart';
 import 'injection_container.dart' as di;
 
 import './features/number_trivia/presentation/screens/main_screen.dart';

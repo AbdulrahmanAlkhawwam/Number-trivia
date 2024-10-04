@@ -1,5 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:number_trivia/core/util/app_context.dart';
+import 'package:number_trivia/features/number_trivia/domain/entities/number_trivia.dart';
+import 'package:number_trivia/features/number_trivia/presentation/screens/content_screen.dart';
+import 'package:number_trivia/features/number_trivia/presentation/screens/loading_screen.dart';
 
 import '../widgets/number_widget.dart';
 import '../bloc/number_trivia_bloc.dart';
@@ -17,6 +21,25 @@ class MainScreen extends StatelessWidget {
       create: (_) => sl<NumberTriviaBloc>(),
       child: BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
         builder: (context, state) {
+          switch (state) {
+            case Loading _:
+              return const LoadingScreen();
+            case Loaded _:
+              return LoadedScreen(
+                numberTrivia: state.trivia,
+              );
+            case Empty _:
+              return const LoadedScreen();
+            case Error _:
+              return Container(color: Colors.red);
+          }
+
+          print("hello world ");
+          return Scaffold(
+            body: Container(
+              color: Colors.red,
+            ),
+          );
           return Scaffold(
             appBar: AppBar(
               title: const Text("Number Trivia"),
@@ -30,55 +53,14 @@ class MainScreen extends StatelessWidget {
                     const SizedBox(
                       height: 35,
                     ),
-                    Form(
-                      key: globalKey,
-                      child: TextFormField(
-                        controller: controller,
-                        keyboardType: TextInputType.number,
-                        validator: (value) => value == null || value.isEmpty
-                            ? "You must add positive number"
-                            : null,
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide(
-                              color: Theme.of(context).colorScheme.primary,
-                              width: 2.5,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide(
-                              color:
-                                  Theme.of(context).colorScheme.inversePrimary,
-                              width: 2.5,
-                            ),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide(
-                              color:
-                                  Theme.of(context).colorScheme.errorContainer,
-                              width: 2.5,
-                            ),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(5),
-                            borderSide: BorderSide(
-                              color: Theme.of(context).colorScheme.error,
-                              width: 2.5,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    Form(key: globalKey, child: Container()),
                     const SizedBox(height: 15),
                     Row(
                       children: <Widget>[
                         Expanded(
                           child: FilledButton(
                             onPressed: () {
-                              if (globalKey.currentState?.validate() ?? false) {
+                              if (/*globalKey.currentState?.validate() ?? */ false) {
                                 globalKey.currentState?.save();
                                 BlocProvider.of<NumberTriviaBloc>(context).add(
                                   ConcreteNumberEvent(
@@ -87,12 +69,9 @@ class MainScreen extends StatelessWidget {
                                 );
                               } else {
                                 ScaffoldMessenger.of(context).clearSnackBars();
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                        "you should use RANDOM button when you don't want to add number !"),
-                                  ),
-                                );
+                                context.showErrorSnackBar(
+                                    massage:
+                                        "you should use RANDOM button when you don't want to add number !");
                               }
                             },
                             child: Text(

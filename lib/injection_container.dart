@@ -16,8 +16,8 @@ import './features/number_trivia/data/repositories/number_trivia_repository_impl
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  // Features - Number Trivia
-  // Bloc
+  /// # Features
+  /// Bloc
   sl.registerFactory(
     () => NumberTriviaBloc(
       concrete: sl(),
@@ -26,7 +26,7 @@ Future<void> init() async {
     ),
   );
 
-  // UseCases
+  /// UseCases
   sl.registerLazySingleton(
     () => GetConcreteNumberTrivia(repository: sl()),
   );
@@ -34,7 +34,7 @@ Future<void> init() async {
     () => GetRandomNumberTrivia(repository: sl()),
   );
 
-  // Repository
+  /// Repository
   sl.registerLazySingleton<NumberTriviaRepository>(
     () => NumberTriviaRepositoryImpl(
       remoteDataSource: sl(),
@@ -43,7 +43,7 @@ Future<void> init() async {
     ),
   );
 
-  // DataSource
+  /// DataSource
   sl.registerLazySingleton<LocalDataSource>(
     () => LocalDataSourceImpl(sharedPreferences: sl()),
   );
@@ -51,15 +51,18 @@ Future<void> init() async {
     () => RemoteDataSourceImpl(),
   );
 
-  // Core
+  /// # Core
+  /// Util
   sl.registerLazySingleton(
     () => InputConverter(),
   );
+
+  /// network
   sl.registerLazySingleton<NetworkInfo>(
     () => NetworkInfoImpl(sl()),
   );
 
-  // External
+  /// External
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton<SharedPreferences>(
     () => sharedPreferences,

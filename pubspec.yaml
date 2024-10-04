@@ -6,11 +6,6 @@ version: 1.0.0+1
 environment:
   sdk: ^3.5.0
 
-platforms:
-  android:
-  ios:
-
-
 dependencies:
   flutter:
     sdk: flutter
